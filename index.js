@@ -21,7 +21,7 @@ export function insertItem(array, item, index) {
 
 // Immutably replace an item at a specific position/index within an array
 export function replaceItem(array, item, index) {
-  const newArray = [...array.slice(0, index - 1), item, ...array.slice(index)];
+  const newArray = [...array.slice(0, index), item, ...array.slice(index + 1)];
   return newArray;
 }
 
@@ -38,7 +38,10 @@ export function removeItem(array, index) {
 //     updateName({ name: "Abe" }, "Barbara")
 // should give back:
 //     { name: "Barbara"}
-export function updateName(object, newName) {}
+export function updateName(object, newName) {
+  const newObj = { ...object, name: newName };
+  return newObj;
+}
 
 // Immutably update the object so that the value under the "needsACupOfTea" property becomes the opposite of what it was.
 // Any other properties in the object should be maintained.
@@ -46,7 +49,9 @@ export function updateName(object, newName) {}
 //     toggleTeaStatus({ name: "Abe", needsACupOfTea: false })
 // should give back:
 //     { name: "Abe", needsACupOfTea: true }
-export function toggleTeaStatus(object) {}
+export function toggleTeaStatus(object) {
+  const newObj = { ...object, needsACupOfTea: !needsACupOfTea };
+}
 
 // Combo Time!!
 
